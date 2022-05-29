@@ -11,7 +11,7 @@ const URL = 'https://pixabay.com/api/';
 const form = document.querySelector('.search-form');
 const cardGallery = document.querySelector(".gallery");
 const btnLoad = document.querySelector('.btn-load-more')
-
+ 
 let query = '';
 let page = 1;
 const perPage = 40;
