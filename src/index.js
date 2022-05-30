@@ -1,12 +1,10 @@
-import axios from "axios";
+import getUser from "./js/getUser";
 import { Notify } from "notiflix";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 
-const KEY = '27728909-9cfd380db3bf4e34a59031529';
 
-const URL = 'https://pixabay.com/api/';
 
 const form = document.querySelector('.search-form');
 const cardGallery = document.querySelector(".gallery");
@@ -16,17 +14,6 @@ let query = '';
 let page = 1;
 const perPage = 40;
 let simpleLightBox = new SimpleLightbox('.gallery a')
-
-
-
-async function getUser(query, page, perPage) {
-
-    const response = await axios.get(`${URL}?key=${KEY}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`);
-    // console.log(response);
-
-     return response;
-}
-
 
 
 form.addEventListener('submit', handleSearchForm);
