@@ -24,9 +24,10 @@ btnLoad.addEventListener('click', handleBtnLoad);
 function handleSearchForm(e) {
     e.preventDefault();
 
-    let query = e.target.searchQuery.value.trim();
+    query = e.target.searchQuery.value.trim();
     cardGallery.innerHTML = '';
     page = 1;
+    btnLoad.classList.add('is-hidden');
 
     if (!query) {
          Notify.failure('The search string cannot be empty. Please specify your search query.')
@@ -74,7 +75,6 @@ function creatCards(cards) {
 
 function handleBtnLoad() {
     page += 1;
-
       getUser(query, page, perPage).then(({ data } ) => {
         
           cardGallery.insertAdjacentHTML('beforeend', creatCards(data.hits));
